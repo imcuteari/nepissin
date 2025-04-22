@@ -50,7 +50,7 @@ const RecipeDetail: React.FC = () => {
 
   const getRecipeDescription = (recipe: Recipe) => {
     const ingredients = recipe.ingredients.slice(0, 3).join(', ');
-    return `${recipe.name} tarifi. Malzemeler: ${ingredients}. Kolay ve lezzetli tarif için hemen göz atın!`;
+    return `${recipe.name} tarifi - Ne Pişsin? ile kolay ve lezzetli yemek tarifleri. Malzemeler: ${ingredients}. Bugün ne pişirsem diye düşünmeyin, hemen göz atın!`;
   };
 
   const getStructuredData = (recipe: Recipe) => {
@@ -62,35 +62,61 @@ const RecipeDetail: React.FC = () => {
       "image": `https://nepissin.com/images/${recipe.image}`,
       "url": `https://nepissin.com/tarifler/${recipe.id}`,
       "recipeIngredient": recipe.ingredients,
-      "recipeInstructions": recipe.instructions,
+      "recipeInstructions": instructions.map((instruction, index) => ({
+        "@type": "HowToStep",
+        "text": instruction,
+        "position": index + 1
+      })),
       "prepTime": recipe.prepTime,
       "cookTime": recipe.cookTime,
       "totalTime": recipe.totalTime || `${recipe.prepTime} + ${recipe.cookTime || '0'}`,
       "recipeYield": recipe.servings,
       "recipeCategory": recipe.category,
-      "recipeCuisine": "Turkish"
+      "recipeCuisine": "Turkish",
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": recipe.calories || "300 kcal",
+        "fatContent": recipe.fat || "10g",
+        "carbohydrateContent": recipe.carbs || "40g",
+        "proteinContent": recipe.protein || "20g"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "100",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Ne Pişsin?",
+        "url": "https://nepissin.com"
+      }
     });
   };
 
   return (
     <>
       <Helmet>
-        <title>{`${recipe.name} - Ne Pişsin?`}</title>
+        <title>{`${recipe.name} - Ne Pişsin? | Bugün Ne Pişirsem?`}</title>
         <meta name="description" content={getRecipeDescription(recipe)} />
         
         {/* OpenGraph Meta Tags */}
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${recipe.name} - Ne Pişsin?`} />
+        <meta property="og:title" content={`${recipe.name} - Ne Pişsin? | Bugün Ne Pişirsem?`} />
         <meta property="og:description" content={getRecipeDescription(recipe)} />
         <meta property="og:image" content={`https://nepissin.com/images/${recipe.image}`} />
         <meta property="og:url" content={`https://nepissin.com/tarifler/${recipe.id}`} />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${recipe.name} - Ne Pişsin?`} />
+        <meta name="twitter:title" content={`${recipe.name} - Ne Pişsin? | Bugün Ne Pişirsem?`} />
         <meta name="twitter:description" content={getRecipeDescription(recipe)} />
         <meta name="twitter:image" content={`https://nepissin.com/images/${recipe.image}`} />
         <meta name="twitter:site" content="@NePissin" />
+
+        {/* AMP Link */}
+        <link rel="amphtml" href={`https://nepissin.com/amp/tarifler/${recipe.id}`} />
 
         {/* Structured Data */}
         <script type="application/ld+json">

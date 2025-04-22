@@ -1,12 +1,17 @@
 export interface Recipe {
-  id: string | number;
+  id: number;
   name: string;
-  image: string;
+  description: string;
   ingredients: string[];
-  instructions: string[];
+  instructions: string | string[];
+  image: string;
   prepTime: string;
   cookTime?: string;
-  servings: string | number;
-  difficulty?: 'Kolay' | 'Orta' | 'Zor';
+  totalTime?: string;
+  servings: string;
   category: string;
+  calories?: string;
+  fat?: string;
+  carbs?: string;
+  protein?: string;
 } 
