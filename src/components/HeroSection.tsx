@@ -26,15 +26,21 @@ const HeroSection: React.FC = () => {
 
       <div className={styles.content}>
         <h1 className={styles.title}>
-          NE PİŞSİN ?
+          Bugün Ne Pişirsem?
         </h1>
 
         <div className={styles.subtitleContainer}>
-          <p className={styles.subtitle}>
-            Artık Size Ait Bir Yemek Şefi Yapay Zekanız var!
-          </p>
+          <h2 className={styles.subtitle}>
+            Kolay ve Hızlı Tarifler
+          </h2>
           <p className={styles.subtitleDescription}>
-            Arama çubuğuna mevcut malzemeleri yazın ve Ara butonuna basın ve yapay zeka sizin için en uygun yemeği göstersin!
+            Evdeki malzemelerle nefis yemekler yapın! Yapay zeka destekli tarif önerilerimizle her gün farklı lezzetler keşfedin.
+          </p>
+          <h3 className={styles.subtitle}>
+            Pratik Yemek Tarifleri
+          </h3>
+          <p className={styles.subtitleDescription}>
+            Kahvaltıdan akşam yemeğine, tatlıdan çorbaya binlerce tarif. Malzemelerinizi yazın, size özel tarifler sunalım!
           </p>
         </div>
       </div>

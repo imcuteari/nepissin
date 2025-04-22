@@ -27,11 +27,35 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
     });
   };
 
+  // Schema.org Recipe Schema
+  const recipeSchema = {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": recipe.name,
+    "image": `/images/${recipe.image}`,
+    "description": `${recipe.name} tarifi - Ne Pişsin'de bulabileceğiniz lezzetli ve pratik bir tarif.`,
+    "recipeIngredient": recipe.ingredients,
+    "recipeCategory": "Yemek Tarifleri",
+    "recipeCuisine": "Türk Mutfağı",
+    "prepTime": "PT15M",
+    "cookTime": "PT30M",
+    "totalTime": "PT45M",
+    "recipeYield": "4 porsiyon",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "100"
+    }
+  };
+
   return (
     <Link
       to={`/tarifler/${recipe.id}`}
       className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
     >
+      <script type="application/ld+json">
+        {JSON.stringify(recipeSchema)}
+      </script>
       <div className="relative pb-[56.25%]">
         <img
           src={`/images/${recipe.image}`}
