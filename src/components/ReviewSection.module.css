@@ -1,0 +1,125 @@
+.reviewSection {
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, var(--background), rgba(94, 74, 227, 0.1));
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text);
+  margin-bottom: 3rem;
+  font-family: var(--font-heading);
+}
+
+.reviewsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reviewCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.avatarContainer {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.avatarContainer::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  opacity: 0.5;
+  z-index: -1;
+  filter: blur(4px);
+}
+
+.avatarInitial {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-heading);
+}
+
+.userName {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.comment {
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Mobile Styles (320px to 767px) */
+@media (max-width: 767px) {
+  .reviewSection {
+    padding: 3rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .reviewsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .reviewCard {
+    padding: 1.5rem;
+  }
+
+  .avatarContainer {
+    width: 60px;
+    height: 60px;
+  }
+
+  .avatarInitial {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet Styles (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .reviewsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+  .reviewsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 

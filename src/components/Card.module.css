@@ -1,0 +1,131 @@
+.card {
+  position: relative;
+  width: 100%;
+  background-color: var(--surface-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  margin: var(--spacing-md);
+}
+
+[data-theme='dark'] .card {
+  background-color: var(--surface-dark);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.content {
+  padding: var(--spacing-md);
+}
+
+.title {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+[data-theme='dark'] .title {
+  color: var(--text-dark);
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--text-light);
+  opacity: 0.9;
+  margin-bottom: var(--spacing-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .description {
+  color: var(--text-dark);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.tag {
+  background-color: var(--accent-light);
+  color: var(--text-light);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: calc(var(--border-radius) / 2);
+  font-size: 0.875rem;
+  transition: background-color var(--transition-fast);
+}
+
+[data-theme='dark'] .tag {
+  background-color: var(--accent-dark);
+  color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin: var(--spacing-sm);
+  }
+
+  .image {
+    height: 150px;
+  }
+
+  .content {
+    padding: var(--spacing-sm);
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    margin: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .image {
+    height: 180px;
+  }
+}
+
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .image {
+    transform: none;
+  }
+
+  .card:active {
+    transform: scale(0.98);
+  }
+}
