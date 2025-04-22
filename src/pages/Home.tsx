@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 import InfoCard from '../components/InfoCard';
+import FAQSection from '../components/FAQSection';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
@@ -52,6 +53,7 @@ const Home: React.FC = () => {
       <div className={styles.cardsContainer}>
         {/* Recipe cards will be added here */}
       </div>
+      <FAQSection />
     </div>
   );
 };
