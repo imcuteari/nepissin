@@ -142,6 +142,9 @@ const Recipes: React.FC = () => {
           })}
         </div>
       )}
+      <script type="text/javascript"> atOptions = { 'anahtar' : '04efbab938f860301c222cf783615f4d', 'biçim' : 'iframe', 'yükseklik' : 250, 'genişlik' : 300, 'parametreler' : {} }; </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/04efbab938f860301c222cf783615f4d/invoke.js"></script>
+      <script type='text/javascript' src='//pl26538891.profitableratecpm.com/2c/1f/78/2c1f78762ae2e3f21798b2af9cd8d15f.js'></script>
     </div>
   );
 };
